@@ -62,7 +62,7 @@ if __name__ == "__main__":
     optimizer=optim.SGD(model.parameters(),lr=config['learning_rate'],momentum=config['momentum'],nesterov=config['nesterov'],weight_decay=config['weight_decay'])
     scheduler=optim.lr_scheduler.ReduceLROnPlateau(optimizer,mode=config['scheduler']['mode'],patience=config['scheduler']['patience'],threshold=config['scheduler']['threshold'],factor=config['scheduler']['factor'],verbose=config['scheduler']['verbose'])
 
-    # run(model,train_data_loader,criterion,optimizer,val_data_loader,scheduler,config['number_epochs'],inv_map,device)
+    run(model,train_data_loader,criterion,optimizer,val_data_loader,scheduler,config['number_epochs'],inv_map,device)
     predictions=inference(model,test_data_loader,criterion,inv_map,device)
     
 
