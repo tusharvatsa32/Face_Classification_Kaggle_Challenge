@@ -1,0 +1,5 @@
+test_data_path: "./content/sample_data/test_data/"
+batch_size: 1
+shuffle: False
+num_workers: 0
+drop_last: False
