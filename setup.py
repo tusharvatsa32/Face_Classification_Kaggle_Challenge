@@ -13,9 +13,8 @@ subprocess.check_call([sys.executable,'-m','pip','install','torchvision'])
 
 os.makedirs('~/Desktop/kaggle_competitions',exist_ok=True)
 os.makedirs('./content',exist_ok=True)
-# os.makedirs('./root',exist_ok=True)
 os.makedirs('./content/.kaggle',exist_ok=True)
-# os.makedirs('./root/.kaggle',exist_ok=True)
+
 
 import json
 
@@ -25,21 +24,6 @@ with open('./content/.kaggle/kaggle.json','w') as file:
 
 path="./content/.kaggle/kaggle.json"
 os.chmod(path,stat.S_IRWXU )
-
-# source="./content/.kaggle/kaggle.json"
-
-# target="./root/.kaggle"
-
-# try:
-#   shutil.copy(source,target)
-
-# except IOError as e:
-#   print("Unable to copy file. %s" % e)
-#   exit(1)
-
-# except:
-#   print("Unexpected error:",sys.exc_info())
-#   exit(1)
 
 subprocess.call(['kaggle','config','set','-n','path','-v','./content'])
 subprocess.check_call([sys.executable,'-m','pip','uninstall','-y','kaggle'])
